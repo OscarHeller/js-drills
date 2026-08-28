@@ -1,6 +1,6 @@
-function makeAdder(add_amount) {
-    return function(starting_num) {
-        return starting_num + add_amount;
+function makeAdder(addAmount) {
+    return function(startingNum) {
+        return startingNum + addAmount;
     }
 }
 
