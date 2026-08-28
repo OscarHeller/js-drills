@@ -1,18 +1,18 @@
 function once(fn) {
-    let return_value;
+    let returnValue;
     let runnable = true;
 
     return function(...args) {
         if (runnable) {
-            runnable = false
-            return_value = fn(...args)
+            runnable = false;
+            returnValue = fn(...args);
         }
 
-        return return_value
+        return returnValue;
     }
 }
 
 const o = once(Math.random);
 
-console.log(o());
+console.log(o()); // Expect both prints to be the same
 console.log(o());
