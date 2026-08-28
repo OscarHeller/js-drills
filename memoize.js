@@ -12,10 +12,10 @@ function memoize(fn) { // fn only takes a single arg per the spec
       return cache[arg];
     } else {
       let result = fn(arg);
-      cache[arg] = result
+      cache[arg] = result;
       return result;
     }
-  }
+  };
 };
 
 const fastSquare = memoize(slowSquare);
