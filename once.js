@@ -4,15 +4,15 @@ function once(fn) {
 
     return function(...args) {
         if (runnable) {
-            runnable = false
-            returnValue = fn(...args)
+            runnable = false;
+            returnValue = fn(...args);
         }
 
-        return returnValue
+        return returnValue;
     }
 }
 
 const o = once(Math.random);
 
-console.log(o());
+console.log(o()); // Expect both prints to be the same
 console.log(o());

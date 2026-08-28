@@ -18,7 +18,7 @@ function makeCounter() {
 }
 
 const c = makeCounter();
-console.log(c.increment());
-console.log(c.increment());
-console.log(c.decrement());
-console.log(c.reset());
+console.log(c.increment()); // Expect 1
+console.log(c.increment()); // Expect 2
+console.log(c.decrement()); // Expect 1
+console.log(c.reset()); // Expect 0
