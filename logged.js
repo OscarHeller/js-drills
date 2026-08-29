@@ -16,6 +16,6 @@ const loggedAdd = logged(add);
 
 const sum = loggedAdd(2, 3);
 // console shows:
-//   called with: 2 3
+//   called with: 2,3
 //   returned: 5
 console.log(sum); // expect: 5 - the wrapper still returns the real result

@@ -1,11 +1,11 @@
 function throttle(fn, ms) {
-    let t = 0;
+    let last = 0;
 
     return function(...args) {
-        let now = Date.now();
+        const now = Date.now();
 
-        if (now - t > ms) {
-            t = now;
+        if (now - last > ms) {
+            last = now;
             fn(...args);
         }
     };
@@ -13,5 +13,7 @@ function throttle(fn, ms) {
 
 const t = throttle((msg) => console.log(msg), 500);
 
-t("howdy") // expect "howdy"
-t("howdy") // expect nothing
+t("first"); // expect "first"
+t("second"); // expect nothing
+
+setTimeout(() => t("third"), 600); // expect "third"

@@ -1,22 +1,22 @@
 // A function that's visibly expensive — it announces when it actually runs:
 function slowSquare(n) {
-  console.log("computing for", n);
-  return n * n;
+    console.log("computing for", n);
+    return n * n;
 }
 
 function memoize(fn) { // fn only takes a single arg per the spec
-  let cache = {};
+    const cache = {};
 
-  return function(arg) {
-    if (arg in cache) {
-      return cache[arg];
-    } else {
-      let result = fn(arg);
-      cache[arg] = result;
-      return result;
-    }
-  };
-};
+    return function(arg) {
+        if (arg in cache) {
+            return cache[arg];
+        } else {
+            const result = fn(arg);
+            cache[arg] = result;
+            return result;
+        }
+    };
+}
 
 const fastSquare = memoize(slowSquare);
 
