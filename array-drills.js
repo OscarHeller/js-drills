@@ -56,7 +56,10 @@ console.log("7.", uniqueTags); // expect ["algorithms", "async", "css", "fundame
 
 // 8. The first post scoring under 60. Then, in a comment: what does that same expression evaluate to if you ask for under 40 instead? (Answer from a run, not from memory.)
 const firstPostUnder60 = posts.find(p => p.score < 60);
-console.log("8.", firstPostUnder60); // expect the full object for post ID 6. for under 40, I would expect "undefined".
+console.log("8a.", firstPostUnder60); // expect the full object for post ID 6.
+
+const firstPostUnder40 = posts.find(p => p.score < 40);
+console.log("8b.", firstPostUnder40); // expect undefined
 
 // 9. Two one-liners producing booleans: (a) does every published post have at least one tag? (b) does Ben have any unpublished post? (State both expected values in your expect-comments — from runs.)
 const doPublishedPostsHaveTags = posts.filter(p => p.published).every(p => p.tags.length > 0);
