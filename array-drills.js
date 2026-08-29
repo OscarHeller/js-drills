@@ -40,7 +40,7 @@ const top3PostsByTitle = [...posts].sort((a, b) => b.score - a.score).slice(0,3)
 console.log("6.", top3PostsByTitle); // expect [ 'Sorting Algorithms', 'Flexbox Deep Dive', 'Grid vs Flexbox' ]
 
 // 7. Every tag used anywhere, no duplicates, alphabetized → ["algorithms", "async", "css", "fundamentals", "grid", "images", "js", "layout"]
-const uniqueTags = Array.from(posts.reduce((acc, p) => {
+const uniqueTags2 = Array.from(posts.reduce((acc, p) => {
     const postTags = p.tags.reduce((acc2, t) => {
         acc2.add(t);
         return acc2;
@@ -49,6 +49,9 @@ const uniqueTags = Array.from(posts.reduce((acc, p) => {
     acc = acc.union(postTags);
     return acc;
 }, new Set())).sort();
+
+
+const uniqueTags = [...new Set(posts.flatMap(p => p.tags))].sort();
 console.log("7.", uniqueTags); // expect ["algorithms", "async", "css", "fundamentals", "grid", "images", "js", "layout"]
 
 // 8. The first post scoring under 60. Then, in a comment: what does that same expression evaluate to if you ask for under 40 instead? (Answer from a run, not from memory.)
