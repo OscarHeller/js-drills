@@ -1,10 +1,10 @@
 const posts = [
-  { id: 1, author: "Ana", title: "Flexbox Deep Dive",      score: 91, tags: ["css", "layout"],         published: true  },
-  { id: 2, author: "Ben", title: "Understanding Closures", score: 78, tags: ["js", "fundamentals"],    published: true  },
-  { id: 3, author: "Ana", title: "Grid vs Flexbox",        score: 84, tags: ["css", "layout", "grid"], published: false },
-  { id: 4, author: "Cy",  title: "Async Basics",           score: 62, tags: ["js", "async"],           published: true  },
-  { id: 5, author: "Ben", title: "Sorting Algorithms",     score: 95, tags: ["js", "algorithms"],      published: false },
-  { id: 6, author: "Ana", title: "Responsive Images",      score: 55, tags: ["css", "images"],         published: true  },
+    { id: 1, author: "Ana", title: "Flexbox Deep Dive",      score: 91, tags: ["css", "layout"],         published: true  },
+    { id: 2, author: "Ben", title: "Understanding Closures", score: 78, tags: ["js", "fundamentals"],    published: true  },
+    { id: 3, author: "Ana", title: "Grid vs Flexbox",        score: 84, tags: ["css", "layout", "grid"], published: false },
+    { id: 4, author: "Cy",  title: "Async Basics",           score: 62, tags: ["js", "async"],           published: true  },
+    { id: 5, author: "Ben", title: "Sorting Algorithms",     score: 95, tags: ["js", "algorithms"],      published: false },
+    { id: 6, author: "Ana", title: "Responsive Images",      score: 55, tags: ["css", "images"],         published: true  },
 ];
 
 const originalPosts = JSON.stringify(posts); // To check later
