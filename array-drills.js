@@ -19,7 +19,7 @@ console.log("2.", publishedPosts); // expect an array of full post objects, in t
 
 // 3. Titles of published posts scoring 70 or higher → ["Flexbox Deep Dive", "Understanding Closures"]
 const highScoringPublishedPosts = posts.filter(p => p.score >= 70 && p.published).map(p => p.title);
-console.log("3.", highScoringPublishedPosts) // expect ["Flexbox Deep Dive", "Understanding Closures"]
+console.log("3.", highScoringPublishedPosts); // expect ["Flexbox Deep Dive", "Understanding Closures"]
 
 // 4. Combined score of all published posts → 286
 const combinedPostScore = posts.filter(p => p.published).reduce((acc, p) => acc + p.score, 0);
