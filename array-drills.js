@@ -40,17 +40,6 @@ const top3PostsByScore = [...posts].sort((a, b) => b.score - a.score).slice(0,3)
 console.log("6.", top3PostsByScore); // expect [ 'Sorting Algorithms', 'Flexbox Deep Dive', 'Grid vs Flexbox' ]
 
 // 7. Every tag used anywhere, no duplicates, alphabetized → ["algorithms", "async", "css", "fundamentals", "grid", "images", "js", "layout"]
-const uniqueTags2 = Array.from(posts.reduce((acc, p) => {
-    const postTags = p.tags.reduce((acc2, t) => {
-        acc2.add(t);
-        return acc2;
-    }, new Set());
-
-    acc = acc.union(postTags);
-    return acc;
-}, new Set())).sort();
-
-
 const uniqueTags = [...new Set(posts.flatMap(p => p.tags))].sort();
 console.log("7.", uniqueTags); // expect ["algorithms", "async", "css", "fundamentals", "grid", "images", "js", "layout"]
 
