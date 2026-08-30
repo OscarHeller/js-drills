@@ -7,7 +7,7 @@ const posts = [
     { id: 6, author: "Ana", title: "Responsive Images",      score: 55, tags: ["css", "images"],         published: true  },
 ];
 
-const originalPosts = JSON.stringify(posts); // To check later
+const postsSnapshot = JSON.stringify(posts); // To check later
 
 // 1. All six titles, in original order.
 const titles = posts.map(p => p.title);
@@ -36,8 +36,11 @@ const postCountPerAuthor = posts.reduce((acc, p) => {
 console.log("5.", postCountPerAuthor); // expect { Ana: 3, Ben: 2, Cy: 1 }
 
 // 6. Titles of the top 3 posts by score, best first → ["Sorting Algorithms", "Flexbox Deep Dive", "Grid vs Flexbox"] — and afterward, posts[0].title must still be "Flexbox Deep Dive".
-const top3PostsByScore = [...posts].sort((a, b) => b.score - a.score).slice(0,3).map(p => p.title); // I extremely didn't remember the intuition of when I want sort to be positive or negative except that I remembered that you want b-a to get a descending order
+const top3PostsByScore = [...posts].sort((a, b) => b.score - a.score).slice(0, 3).map(p => p.title);
 console.log("6.", top3PostsByScore); // expect [ 'Sorting Algorithms', 'Flexbox Deep Dive', 'Grid vs Flexbox' ]
+
+ // NB on 6: I extremely didn't remember the intuition of when I want sort to be positive or negative except that I remembered that
+ //  you want b-a to get a descending order
 
 // 7. Every tag used anywhere, no duplicates, alphabetized → ["algorithms", "async", "css", "fundamentals", "grid", "images", "js", "layout"]
 const uniqueTags = [...new Set(posts.flatMap(p => p.tags))].sort();
@@ -69,4 +72,4 @@ const titlesByAuthor = posts.reduce((acc, p) => {
 }, {});
 console.log("10.", titlesByAuthor); // expect { Ana: ["Flexbox Deep Dive", "Grid vs Flexbox", "Responsive Images"], Ben: ["Understanding Closures", "Sorting Algorithms"], Cy: ["Async Basics"] }
 
-console.log("Posts check.", JSON.stringify(posts) === originalPosts); // Expect true
+console.log("Posts check.", JSON.stringify(posts) === postsSnapshot); // Expect true
