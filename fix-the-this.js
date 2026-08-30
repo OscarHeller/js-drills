@@ -13,36 +13,35 @@
 // After running: Prediction correct.
 
 // A1 fixed two ways:
-const player_a = {
+const playerDot = {
     name: "Oscar",
     hp: 100,
     status() {
         console.log(`${this.name}: ${this.hp} hp`);
     },
 };
-player_a.status(); // expect: Oscar: 100 hp
+playerDot.status(); // expect: Oscar: 100 hp
 
-const player_b = {
+const playerBind = {
     name: "Oscar",
     hp: 100,
     status() {
         console.log(`${this.name}: ${this.hp} hp`);
     },
 };
-const s = player_b.status.bind(player_b);
+const s = playerBind.status.bind(playerBind);
 s(); // expect: Oscar: 100 hp
 
-const player_c = {
-    name: "Oscar",
+const playerCall = {
+    name: "Boss",
     hp: 100,
     status() {
         console.log(`${this.name}: ${this.hp} hp`);
     },
 };
-s.call(player_c); // expect: Oscar: 100 hp
-
-// After fix: I'm not sure these are the two answers you were looking for, but they work. Happy to use other techniques on
-// request.
+const s2 = playerCall.status;
+s2.call(playerBind); // expect: Oscar: 100 hp (left this in to show the behavior of call)
+s2.call(playerCall); // expect: Boss: 100 hp
 
 // ***********************************
 // A2 — one-line fix:
@@ -56,11 +55,11 @@ s.call(player_c); // expect: Oscar: 100 hp
 // After running: Prediction correct.
 
 // A2 fix
-const cart_a = {
+const cartTradFunction = {
     items: 3,
     report() { console.log(`${this.items} items in cart`); },
 };
-cart_a.report();   // intended: "3 items in cart"
+cartTradFunction.report();   // intended: "3 items in cart"
 
 // After fix: MDN says that arrow-functions can't be used as methods at all, so the only fix I could come up with was to use a
 // traditional function. Was that right?
@@ -83,11 +82,11 @@ cart_a.report();   // intended: "3 items in cart"
 // After running: It was actually score: NaN. I guess that makes sense though I didn't know about it. this.score is undefined,
 // the function tries to increment it so its value becomes NaN (?), and that's what it prints.
 
-const game_a = {
+const gameRecursiveTimeout = {
     score: 0,
     t: 0,
     start() {
-        this.t = setTimeout(() => {
+        setTimeout(() => {
             this.score++;
             console.log(`score: ${this.score}`);
 
@@ -95,9 +94,9 @@ const game_a = {
         }, 300);
     },
 };
-game_a.start(); // expect: score: 1 / score: 2 / score: 3
+gameRecursiveTimeout.start(); // expect: score: 1 / score: 2 / score: 3
 
-const game_b = {
+const gameInterval = {
     score: 0,
     t: 0,
     start() {
@@ -111,6 +110,6 @@ const game_b = {
         }, 300);
     },
 };
-game_b.start(); // expect: score: 1 / score: 2 / score: 3
+gameInterval.start(); // expect: score: 1 / score: 2 / score: 3
 
 // After fix: Don't be alarmed that the output from both versions overlaps as they run async together.

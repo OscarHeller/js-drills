@@ -8,7 +8,6 @@ const users = [
 const labels = users.map(u => {
     const { name, plan } = u;
     const tier = plan?.tier ?? "free";
-    
     return `${name} (${tier})`;
 });
 console.log(labels); // expect: [ 'Ana (free)', 'Ben (pro)' ]
@@ -24,8 +23,7 @@ schedule(function () { console.log("ran"); }, 0); // expect ran (after 0ms)
 // Update: Changed it to a default parameter. Now delay = null will not wait.
 
 // B3:
-function describe(post) {
-    const { title, author: { name: authorName } } = post;
+function describe({ title, author: { name: authorName } }) {
     console.log(`${title} by ${authorName}`);
 }
 describe({ title: "Grid", author: { name: "Ana" } }); // expect: Grid by Ana
