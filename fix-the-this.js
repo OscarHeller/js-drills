@@ -20,7 +20,7 @@ const player_a = {
         console.log(`${this.name}: ${this.hp} hp`);
     },
 };
-player_a.status(); // expect: Oscar: 100hp
+player_a.status(); // expect: Oscar: 100 hp
 
 const player_b = {
     name: "Oscar",
@@ -30,7 +30,16 @@ const player_b = {
     },
 };
 const s = player_b.status.bind(player_b);
-s(); // expect: Oscar: 100hp
+s(); // expect: Oscar: 100 hp
+
+const player_c = {
+    name: "Oscar",
+    hp: 100,
+    status() {
+        console.log(`${this.name}: ${this.hp} hp`);
+    },
+};
+s.call(player_c); // expect: Oscar: 100 hp
 
 // After fix: I'm not sure these are the two answers you were looking for, but they work. Happy to use other techniques on
 // request.
