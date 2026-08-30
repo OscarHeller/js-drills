@@ -84,7 +84,6 @@ cartTradFunction.report();   // intended: "3 items in cart"
 
 const gameRecursiveTimeout = {
     score: 0,
-    t: 0,
     start() {
         setTimeout(() => {
             this.score++;
