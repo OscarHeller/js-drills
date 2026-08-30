@@ -5,26 +5,28 @@ const users = [
     { name: "Ana", plan: null },
     { name: "Ben", plan: { tier: "pro" } },
 ];
-// const labels = users.map(u => {
-//     const { name, plan: { tier } } = u;
-//     return `${name} (${tier})`;
-// });
-// console.log(labels); // expect: [ 'Ana (free)', 'Ben (pro)' ]
-// Note: I'm really stuck here. I tried to set defaults or otherwise handle the plan: null in my destructuring, but
-// couldn't get it. I commented out my code so the rest of the file will be executable.
+const labels = users.map(u => {
+    const { name, plan } = u;
+    const tier = plan?.tier ?? "free";
+    
+    return `${name} (${tier})`;
+});
+console.log(labels); // expect: [ 'Ana (free)', 'Ben (pro)' ]
 
 // B2: — rewrite, then add a comment answering: for the exact call shown,
 // does your modern version behave differently than the ES5 one? Which behavior is correct, and why?
-function schedule(fn, delay) {
-    setTimeout(fn, delay ?? 500); // Moved it to one line just for fun.
+function schedule(fn, delay = 500) {
+    setTimeout(fn, delay); // Moved it to one line just for fun.
 }
 schedule(function () { console.log("ran"); }, 0); // expect ran (after 0ms)
 // delay || 500 causes a bug specifically with 0, which is falsy, so a timeout of 0 gets set to 500 (c100). ?? only triggers 
 // for undefined or null. The new behavior is correct.
+// Update: Changed it to a default parameter. Now delay = null will not wait.
 
 // B3:
 function describe(post) {
-    console.log(`${post.title} by ${post.author.name}`);
+    const { title, author: { name: authorName } } = post;
+    console.log(`${title} by ${authorName}`);
 }
 describe({ title: "Grid", author: { name: "Ana" } }); // expect: Grid by Ana
 
