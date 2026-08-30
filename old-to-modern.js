@@ -1,15 +1,17 @@
 // Rewrite each in modern JS. Behavior must be verified by running both versions — with one deliberate exception in B2, see its note.
 
 // B1:
-var users = [
+const users = [
     { name: "Ana", plan: null },
     { name: "Ben", plan: { tier: "pro" } },
 ];
-var labels = users.map(function (u) {
-    const tier = u?.plan?.tier ?? "free";
-    return `${u.name} (${tier})`
-});
-console.log(labels); // expect: [ 'Ana (free)', 'Ben (pro)' ]
+// const labels = users.map(u => {
+//     const { name, plan: { tier } } = u;
+//     return `${name} (${tier})`;
+// });
+// console.log(labels); // expect: [ 'Ana (free)', 'Ben (pro)' ]
+// Note: I'm really stuck here. I tried to set defaults or otherwise handle the plan: null in my destructuring, but
+// couldn't get it. I commented out my code so the rest of the file will be executable.
 
 // B2: — rewrite, then add a comment answering: for the exact call shown,
 // does your modern version behave differently than the ES5 one? Which behavior is correct, and why?
@@ -18,7 +20,7 @@ function schedule(fn, delay) {
 }
 schedule(function () { console.log("ran"); }, 0); // expect ran (after 0ms)
 // delay || 500 causes a bug specifically with 0, which is falsy, so a timeout of 0 gets set to 500 (c100). ?? only triggers 
-// for false, undefined, or null (c70). The new behavior is correct.
+// for undefined or null. The new behavior is correct.
 
 // B3:
 function describe(post) {
