@@ -36,7 +36,7 @@ const postCountPerAuthor = posts.reduce((acc, p) => {
 console.log("5.", postCountPerAuthor); // expect { Ana: 3, Ben: 2, Cy: 1 }
 
 // 6. Titles of the top 3 posts by score, best first → ["Sorting Algorithms", "Flexbox Deep Dive", "Grid vs Flexbox"] — and afterward, posts[0].title must still be "Flexbox Deep Dive".
-const top3PostsByScore = [...posts].sort((a, b) => b.score - a.score).slice(0,3).map(p => p.title); // I extremely didn't remember the intuition of when I want sort to be positive or negative except that I remembered that you want b-a to get a descending order
+const top3PostsByScore = [...posts].sort((a, b) => b.score - a.score).slice(0, 3).map(p => p.title); // I extremely didn't remember the intuition of when I want sort to be positive or negative except that I remembered that you want b-a to get a descending order
 console.log("6.", top3PostsByScore); // expect [ 'Sorting Algorithms', 'Flexbox Deep Dive', 'Grid vs Flexbox' ]
 
 // 7. Every tag used anywhere, no duplicates, alphabetized → ["algorithms", "async", "css", "fundamentals", "grid", "images", "js", "layout"]
