@@ -52,14 +52,13 @@ s.call(player_c); // expect: Oscar: 100 hp
 // };
 // cart.report();   // intended: "3 items in cart"
 // My prediction: "undefined items in cart"
-// Because: The arrow-function isn't enclosed by any function-function, so it falls back to the Global scope, where Global.items 
-// is (presumably) undefined.
+// Because: The arrow-function isn't enclosed by any function-function, so it falls back to the module scope.
 // After running: Prediction correct.
 
 // A2 fix
 const cart_a = {
     items: 3,
-    report() {console.log(`${this.items} items in cart`) },
+    report() { console.log(`${this.items} items in cart`); },
 };
 cart_a.report();   // intended: "3 items in cart"
 
