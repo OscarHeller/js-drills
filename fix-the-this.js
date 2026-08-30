@@ -103,11 +103,11 @@ const game_b = {
     start() {
         const self = this;
 
-        this.t = setTimeout(function () {
+        this.t = setInterval(function () {
             self.score++;
             console.log(`score: ${self.score}`);
 
-            if (self.score < 3) self.start();
+            if (self.score >= 3) clearInterval(self.t);
         }, 300);
     },
 };
