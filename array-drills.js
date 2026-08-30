@@ -7,7 +7,7 @@ const posts = [
     { id: 6, author: "Ana", title: "Responsive Images",      score: 55, tags: ["css", "images"],         published: true  },
 ];
 
-const originalPosts = JSON.stringify(posts); // To check later
+const postsSnapshot = JSON.stringify(posts); // To check later
 
 // 1. All six titles, in original order.
 const titles = posts.map(p => p.title);
@@ -69,4 +69,4 @@ const titlesByAuthor = posts.reduce((acc, p) => {
 }, {});
 console.log("10.", titlesByAuthor); // expect { Ana: ["Flexbox Deep Dive", "Grid vs Flexbox", "Responsive Images"], Ben: ["Understanding Closures", "Sorting Algorithms"], Cy: ["Async Basics"] }
 
-console.log("Posts check.", JSON.stringify(posts) === originalPosts); // Expect true
+console.log("Posts check.", JSON.stringify(posts) === postsSnapshot); // Expect true
