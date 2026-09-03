@@ -9,7 +9,7 @@ Promise.resolve().then(() => {
 });
 console.log(`D @${t()}ms`);
 
-// Expect
+// Expect:
 
 // D @1ms
 // C @33ms

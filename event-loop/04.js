@@ -7,7 +7,7 @@ Promise.resolve().then(() => console.log("5"));
 setTimeout(() => console.log("6"), 0);
 console.log("7");
 
-// Expect
+// Expect:
 
 // 7
 // 1

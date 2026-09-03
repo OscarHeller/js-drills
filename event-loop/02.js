@@ -9,7 +9,7 @@ Promise.resolve().then(() => {
 setTimeout(() => console.log("E"), 0);
 console.log("F");
 
-// Expect
+// Expect:
 
 // F
 // A
