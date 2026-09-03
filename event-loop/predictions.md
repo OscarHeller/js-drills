@@ -27,6 +27,20 @@
 * tick 2 @200ms
 * tick 3 @300ms
 
+### Postmortem
+
+Hit.
+
+### Expect
+
+sync @0ms
+timeout @2ms
+tick 1 @100ms
+tick 2 @200ms
+tick 3 @301ms
+
+Real numbers will vary slightly per run. I intentionally left my predictions round but knew there would be variation.
+
 ## 02.js
 
 ### Trace
@@ -54,6 +68,19 @@
 * B
 * C
 
+### Postmortem
+
+Hit.
+
+### Expect
+
+F
+A
+D
+E
+B
+C
+
 ## 03.js
 
 ### Trace
@@ -79,6 +106,17 @@
 * C @30ms
 * B @30ms
 * A @40ms
+
+### Postmortem
+
+Hit.
+
+### Expect
+
+D @1ms
+C @33ms
+B @33ms
+A @41ms
 
 ## 04.js
 
@@ -108,6 +146,20 @@
 * 2
 * 3
 * 6
+
+### Postmortem
+
+Hit.
+
+### Expect
+
+7
+1
+4
+5
+2
+3
+6
 
 ## 05.js
 
@@ -146,6 +198,22 @@
 * let, 1
 * let, 2
 
+### Postmortem
+
+Partial miss. I was uncertain at the time if i exists outside of the scope of the for loop or not. I also thought that a comma
+in a console.log statement added a comma to the output. The event-loop part was correct though.
+
+### Expect
+
+sync 3
+micro
+var 3
+var 3
+var 3
+let 0
+let 1
+let 2
+
 ## 06.js
 
 ### Trace
@@ -162,3 +230,28 @@
 
 * NOW
 * TypeError
+
+### Postmortem
+
+Hit.
+
+### Expect
+
+NOW
+node:internal/errors:546
+      throw error;
+      ^
+
+TypeError [ERR_INVALID_ARG_TYPE]: The "callback" argument must be of type function. Received undefined
+    at setTimeout (node:timers:116:3)
+    at Object.<anonymous> (/home/oscar/job/js-drills/event-loop/06.js:7:1)
+    at Module._compile (node:internal/modules/cjs/loader:1760:14)
+    at Object..js (node:internal/modules/cjs/loader:1892:10)
+    at Module.load (node:internal/modules/cjs/loader:1480:32)
+    at Module._load (node:internal/modules/cjs/loader:1299:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  code: 'ERR_INVALID_ARG_TYPE'
+}
