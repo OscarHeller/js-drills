@@ -170,7 +170,7 @@ Partial miss. I was uncertain at the time if i exists outside of the scope of th
 in a console.log statement added a comma to the output. The event-loop part was correct though.
 
 Better explanation: i survives outside the loop specifically because var is function-scoped. if it was `let i`, it would not 
-survive and would be undefined. Commas within a console.log statement produce spaces.
+survive and would throw a ReferenceError. Commas within a console.log statement produce spaces.
 
 ## 06.js
 
