@@ -9,7 +9,7 @@ const id = setInterval(() => {
 setTimeout(() => console.log(`timeout @${t()}ms`), 0);
 console.log(`sync @${t()}ms`);
 
-// Expect
+// Expect:
 
 // sync @0ms
 // timeout @2ms
