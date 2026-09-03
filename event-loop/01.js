@@ -8,3 +8,11 @@ const id = setInterval(() => {
 }, 100);
 setTimeout(() => console.log(`timeout @${t()}ms`), 0);
 console.log(`sync @${t()}ms`);
+
+// Expect
+
+// sync @0ms
+// timeout @2ms
+// tick 1 @100ms
+// tick 2 @200ms
+// tick 3 @301ms

@@ -6,3 +6,14 @@ for (let j = 0; j < 3; j++) {
 }
 Promise.resolve().then(() => console.log("micro"));
 console.log("sync", i);
+
+// Expect:
+
+// sync 3
+// micro
+// var 3
+// var 3
+// var 3
+// let 0
+// let 1
+// let 2

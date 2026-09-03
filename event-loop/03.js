@@ -8,3 +8,10 @@ Promise.resolve().then(() => {
     console.log(`C @${t()}ms`);
 });
 console.log(`D @${t()}ms`);
+
+// Expect
+
+// D @1ms
+// C @33ms
+// B @33ms
+// A @41ms

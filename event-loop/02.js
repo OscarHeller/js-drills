@@ -8,3 +8,12 @@ Promise.resolve().then(() => {
 });
 setTimeout(() => console.log("E"), 0);
 console.log("F");
+
+// Expect
+
+// F
+// A
+// D
+// E
+// B
+// C
